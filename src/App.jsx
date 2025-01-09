@@ -48,9 +48,13 @@ const App = () => {
 
   // Función para eliminar una tarea
   const eliminarTarea = (id) => {
-    const tareasFiltradas = tareas.filter((tarea) => tarea.id !== id); 
-    setTareas(tareasFiltradas); 
+    const confirmacion = window.confirm("¿Estás seguro de que deseas eliminar esta tarea?");
+    if (confirmacion) {
+      const tareasFiltradas = tareas.filter((tarea) => tarea.id !== id); 
+      setTareas(tareasFiltradas); 
+    }
   };
+  
 
   //Mostras las tareas de acuerdo al filtro
   const tareasFiltradas = tareas.filter((tarea) => {
